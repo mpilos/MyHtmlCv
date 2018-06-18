@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="nonnehle.css">
+</head>
+<body>
+
+<section id="centerbox">
+<div id="right">
+<br><input type="text" id = "name" placeholder="Enter Your Name" value = "" > 
+</br>
+<br><input type="text" id = "sname" placeholder="Enter Your Surname" value = "" > 
+</br>
+
+<br> <input type = "text" id = "age" placeholder="Age" value = "" > 
+</br>
+
+<br>
+<button onclick = "myAdd()">add</button> 
+<button onclick = "display()";this.onclick=null">display</button> 
+<button onclick = "restart()">clear</button> 
+<button onclick = "remove()">Delete</button> 
+ </br>
+ </div>
+<div id="container">
+ 
+</div>
+
+</section>
+
+
+
+<script >
+
+var student={name,sname,age};
+var studList=[];
+
+function display(){
+  
+    for (var i in studList)
+	{
+	    var ptagname  = document.createElement("p");
+		ptagname.innerHTML = studList[i]+" ";
+		var container = document.getElementById("container");
+		container.appendChild(ptagname); 
+	} 
+}
+function myAdd(){
+
+    student.name = document.getElementById("name").value;
+	student.sname = document.getElementById("sname").value;
+	student.age = document.getElementById("age").value;
+	
+	if (student.name=="")
+	{
+	    alert("Please enter your name")
+	    Windows.refresh();
+	}
+	else if(student.name.length>10)
+	{
+	    alert ("You've reached the maximum length")
+	}
+    else{
+	      
+	}
+    var display= student.name+" "+student.sname+" "+student.age;
+	
+	studList.push(display);
+	
+    student.name = document.getElementById("name").value="";
+	student.sname = document.getElementById("sname").value="";
+	student.age = document.getElementById("age").value="";
+	
+
+}
+
+function remove()
+{
+    var container=document.getElementById("container");
+	container.remove();
+	studList=[];
+	var div = document.createElement("div");
+	div.setAttribute("id","container");
+	var sect = document.getElementById("leftbox");
+	sect.appendChild(div);
+	container.setAttribute("style","background-color:green");
+}
+ 
+ 
+</script>
+
+</body>
+</html>
